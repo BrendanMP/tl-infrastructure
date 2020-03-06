@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" transform="translate(0.5 0.5)" fill="currentColor"
+       stroke="currentColor">
+        <circle cx="16" cy="6" r="5" fill="none" stroke="currentColor" stroke-miterlimit="10"></circle>
+        <path d="M8,31V19a8,8,0,0,1,8-8h0a8,8,0,0,1,8,8V31" fill="none" stroke="currentColor" stroke-miterlimit="10"></path>
+        <path d="M27,11,6.159,27.1a.5.5,0,0,0,.306.9H28" fill="none" stroke-miterlimit="10" data-color="color-2"></path>
+    </g>
+</svg>

@@ -1,8 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f53ab638-500e-4bc2-9949-84fdaffc1d7e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/Map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/Map.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MultSelect/MultiSelect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Nav/Nav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Nav/Nav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SelectBox/SelectBox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SelectBox/SelectBox.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StackChart/StackChart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StackChart/StackChart.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geojson/communes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geojson/countries.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geojson/regions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geojson/sub_communes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/COA.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/accidents.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/arrow-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/arrow-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/caret-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/chevron.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/close.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/dashboard.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/fatalities.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/fullscreen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/map.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/ministers.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/ministries.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/not-responded.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/pause.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/play.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/rank.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/reset.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/response-time.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/rotate.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/_base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1YcrLr6sSbwNxeoziHQ5zwrkwbu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/geojson" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/geojson" />
+      <recent name="$PROJECT_DIR$/src/components/MultSelect" />
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/geojson" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f53ab638-500e-4bc2-9949-84fdaffc1d7e" name="Default Changelist" comment="" />
+      <created>1583252671006</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583252671006</updated>
+      <workItem from="1583252672259" duration="62840000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/StackChart/StackChart.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

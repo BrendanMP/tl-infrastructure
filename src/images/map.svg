@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="currentColor" stroke="currentColor">
+        <circle fill="none" stroke="currentColor" stroke-miterlimit="10" cx="16" cy="16" r="13"></circle>
+        <line fill="none" stroke="currentColor" stroke-miterlimit="10" x1="16" y1="1" x2="16" y2="6"></line>
+        <line fill="none" stroke="currentColor" stroke-miterlimit="10" x1="31" y1="16" x2="26" y2="16"></line>
+        <line fill="none" stroke="currentColor" stroke-miterlimit="10" x1="16" y1="31" x2="16" y2="26"></line>
+        <line fill="none" stroke="currentColor" stroke-miterlimit="10" x1="1" y1="16" x2="6" y2="16"></line>
+        <circle data-color="color-2" fill="none" stroke-miterlimit="10" cx="16" cy="16" r="3"></circle>
+    </g>
+</svg>

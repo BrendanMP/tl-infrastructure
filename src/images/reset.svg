@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" fill="currentColor" stroke="currentColor">
+        <line x1="16" y1="2" x2="16" y2="8" fill="none" data-color="color-2"></line>
+        <line x1="1" y1="27" x2="7" y2="24" fill="none" stroke-miterlimit="10" data-color="color-2"
+              stroke-linecap="butt"></line>
+        <line x1="31" y1="27" x2="25" y2="24" fill="none" stroke-miterlimit="10" data-color="color-2"
+              stroke-linecap="butt"></line>
+        <ellipse cx="16" cy="12" rx="9" ry="4" fill="none" stroke="currentColor" stroke-miterlimit="10"></ellipse>
+        <path d="M7,12V24c0,2.209,4.029,4,9,4s9-1.791,9-4V12" fill="none" stroke="currentColor" stroke-miterlimit="10"
+              stroke-linecap="butt"></path>
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" transform="translate(0.5 0.5)" fill="currentColor"
+       stroke="currentColor">
+        <path d="M9,11H6.781a1,1,0,0,0-.97.757L4,19" fill="none" stroke="currentColor" stroke-miterlimit="10"
+              stroke-linecap="butt"></path>
+        <path d="M28,19l-1.811-7.243a1,1,0,0,0-.97-.757H23" fill="none" stroke="currentColor" stroke-miterlimit="10"
+              stroke-linecap="butt"></path>
+        <path d="M30,28H2V21.414a1,1,0,0,1,.293-.707L4,19H28l1.707,1.707a1,1,0,0,1,.293.707Z" fill="none"
+              stroke="currentColor" stroke-miterlimit="10"></path>
+        <circle cx="6.5" cy="23.5" r="1.5" fill="currentColor" data-stroke="none" stroke="none"
+                stroke-linecap="butt"></circle>
+        <circle cx="25.5" cy="23.5" r="1.5" fill="currentColor" data-stroke="none" stroke="none"
+                stroke-linecap="butt"></circle>
+        <rect x="2" y="28" width="4" height="3" fill="none" stroke="currentColor" stroke-miterlimit="10"></rect>
+        <rect x="2" y="28" width="4" height="3" fill="currentColor" data-stroke="none" stroke="none"
+              stroke-linecap="butt"></rect>
+        <rect x="26" y="28" width="4" height="3" fill="none" stroke="currentColor" stroke-miterlimit="10"></rect>
+        <rect x="26" y="28" width="4" height="3" fill="currentColor" data-stroke="none" stroke="none"
+              stroke-linecap="butt"></rect>
+        <path d="M12,8.81C12,6.243,16,2,16,2s4,4.243,4,6.81a4,4,0,1,1-8,0Z" fill="none" stroke-miterlimit="10"
+              data-color="color-2"></path>
+    </g>
+</svg>

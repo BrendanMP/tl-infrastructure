@@ -1,0 +1,23 @@
+@import "../../scss/base";
+
+.Map {
+  position: relative;
+  flex: 1 1 auto;
+
+  .mapboxgl-map {
+    .mapboxgl-ctrl-logo {
+      display: none;
+    }
+
+    .mapboxgl-ctrl-attrib {
+      &:after {
+        display: none;
+      }
+    }
+
+    .mapboxgl-ctrl-attrib-inner {
+      display: none;
+    }
+  }
+}
+

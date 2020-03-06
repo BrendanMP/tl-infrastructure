@@ -1,0 +1,29 @@
+@import "../../scss/base";
+
+.StackChart {
+
+  > header, > footer  {
+    font-size: 0.8em;
+  }
+
+
+  &__bar {
+    position: relative;
+    height: 1.5rem;
+    background: $gray-700;
+    margin: 0.5rem 0;
+
+
+    &-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding-left: 0.5rem;
+      line-height: 0;
+      font-size: 0.8em;
+    }
+  }
+}

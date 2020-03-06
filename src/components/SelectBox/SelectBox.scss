@@ -1,0 +1,39 @@
+@import "../../scss/base";
+
+.SelectBox {
+  position: relative;
+  line-height: 1;
+  min-width: 12rem;
+
+  &--multi {
+    min-width: 24rem;
+  }
+
+  .SelectBox__input {
+    &__control {
+      border-radius: 0;
+      background: $gray-200;
+    }
+    //
+    //&__menu {
+    //  border-radius: 0;
+    //  background: $gray-100;
+    //  border: none;
+    //}
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    svg {
+      margin-left: 2rem;
+    }
+  }
+
+  &__dropdown {
+    background: $gray-700;
+    position: absolute;
+    width: 100%;
+  }
+}

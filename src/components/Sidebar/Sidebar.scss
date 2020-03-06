@@ -1,0 +1,60 @@
+@import "../../scss/base";
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  width: 20vw;
+
+  section {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    > header {
+      padding: 1rem;
+      //border-bottom: 1px solid $gray-700;
+      border-left: 6px solid $gray-700;
+      background: $gray-800;
+    }
+    > article {
+      padding: 1rem;
+      flex: 1 1 auto;
+      margin-bottom: 3rem;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+  }
+
+  &__legend {
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      span {
+        display: block;
+        font-size: 0.8em;
+        line-height: 1;
+      }
+    }
+    &-color {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 5rem;
+      margin-right: 0.75rem;
+    }
+  }
+
+  &__chart {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $gray-700;
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
