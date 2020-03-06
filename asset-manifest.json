@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd11172a.chunk.css",
-    "main.js": "/static/js/main.f04b671f.chunk.js",
-    "main.js.map": "/static/js/main.f04b671f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4adb9015.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4adb9015.js.map",
-    "static/css/2.3b80cb7c.chunk.css": "/static/css/2.3b80cb7c.chunk.css",
-    "static/js/2.1842eaa9.chunk.js": "/static/js/2.1842eaa9.chunk.js",
-    "static/js/2.1842eaa9.chunk.js.map": "/static/js/2.1842eaa9.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.25a9adf485d39a4f2d560e36fc51b3a7.js": "/precache-manifest.25a9adf485d39a4f2d560e36fc51b3a7.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.3b80cb7c.chunk.css.map": "/static/css/2.3b80cb7c.chunk.css.map",
-    "static/css/main.cd11172a.chunk.css.map": "/static/css/main.cd11172a.chunk.css.map",
-    "static/js/2.1842eaa9.chunk.js.LICENSE.txt": "/static/js/2.1842eaa9.chunk.js.LICENSE.txt"
+    "main.css": "/tl-infrastructure/static/css/main.cd11172a.chunk.css",
+    "main.js": "/tl-infrastructure/static/js/main.f04b671f.chunk.js",
+    "main.js.map": "/tl-infrastructure/static/js/main.f04b671f.chunk.js.map",
+    "runtime-main.js": "/tl-infrastructure/static/js/runtime-main.84410f67.js",
+    "runtime-main.js.map": "/tl-infrastructure/static/js/runtime-main.84410f67.js.map",
+    "static/css/2.3b80cb7c.chunk.css": "/tl-infrastructure/static/css/2.3b80cb7c.chunk.css",
+    "static/js/2.ab9637e1.chunk.js": "/tl-infrastructure/static/js/2.ab9637e1.chunk.js",
+    "static/js/2.ab9637e1.chunk.js.map": "/tl-infrastructure/static/js/2.ab9637e1.chunk.js.map",
+    "index.html": "/tl-infrastructure/index.html",
+    "precache-manifest.565d1e5cb456eaf4c3d1ee6c996cb7c9.js": "/tl-infrastructure/precache-manifest.565d1e5cb456eaf4c3d1ee6c996cb7c9.js",
+    "service-worker.js": "/tl-infrastructure/service-worker.js",
+    "static/css/2.3b80cb7c.chunk.css.map": "/tl-infrastructure/static/css/2.3b80cb7c.chunk.css.map",
+    "static/css/main.cd11172a.chunk.css.map": "/tl-infrastructure/static/css/main.cd11172a.chunk.css.map",
+    "static/js/2.ab9637e1.chunk.js.LICENSE.txt": "/tl-infrastructure/static/js/2.ab9637e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4adb9015.js",
+    "static/js/runtime-main.84410f67.js",
     "static/css/2.3b80cb7c.chunk.css",
-    "static/js/2.1842eaa9.chunk.js",
+    "static/js/2.ab9637e1.chunk.js",
     "static/css/main.cd11172a.chunk.css",
     "static/js/main.f04b671f.chunk.js"
   ]
