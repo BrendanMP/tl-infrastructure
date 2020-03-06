@@ -4,6 +4,7 @@
   position: relative;
   line-height: 1;
   min-width: 12rem;
+  font-size: 0.85rem;
 
   &--multi {
     min-width: 24rem;
@@ -12,14 +13,75 @@
   .SelectBox__input {
     &__control {
       border-radius: 0;
-      background: $gray-200;
+      background: $gray-900;
+      border-color: transparent;
+      color: $gray-400;
+
+      &:hover {
+        border-color: $gray-700;
+      }
+
+      &--is-focused {
+        border-color: $gray-700;
+        box-shadow: none;
+      }
     }
-    //
-    //&__menu {
-    //  border-radius: 0;
-    //  background: $gray-100;
-    //  border: none;
-    //}
+
+    &__value-container {
+      padding: 0.2rem 0.5rem;
+    }
+
+    &__single-value {
+      color: $gray-400;
+    }
+
+    &__placeholder {
+      color: $gray-500;
+    }
+
+    &__indicator {
+      padding: 0.5rem 0.66rem;
+      &-separator {
+        background-color: $gray-600;
+      }
+    }
+
+
+    &__menu {
+      border-radius: 0;
+      background: $gray-800;
+      border: none;
+    }
+
+    &__input {
+      color: $gray-400;
+    }
+
+    &__multi-value {
+      background: $gray-600;
+      &__label {
+        font-size: 0.7rem;
+        padding: 0.25rem;
+        color: $gray-100;
+      }
+
+      &__remove {
+        padding: 0.25rem;
+        margin-left: 0.1rem;
+        &:hover {
+          background: $gray-700;
+          color: $gray-400;
+        }
+      }
+    }
+
+    &__option {
+      background: transparent;
+
+      &--is-focused, &:active {
+        background: $gray-700;
+      }
+    }
   }
 
   &__trigger {

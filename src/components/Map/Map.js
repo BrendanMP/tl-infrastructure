@@ -165,15 +165,15 @@ class Map extends Component {
         filled: true,
         getPosition: d => [Number(d.x), Number(d.y)],
         getFillColor: [255, 255, 255],
-        getRadius: 10
+        getRadius: 20
       })
     ];
 
     return [
-      poi ? points : null,
       data.id === "regions" ? regions : null,
       data.id === "communes" ? communes : null,
-      data.id === "sub_communes" ? sub_communes : null
+      data.id === "sub_communes" ? sub_communes : null,
+      poi ? points : null
     ];
   }
 

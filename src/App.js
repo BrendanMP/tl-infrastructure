@@ -154,8 +154,6 @@ class App extends Component {
   render() {
     const { legend, charts, zones, poi } = this.state;
 
-    console.log(poi);
-
     return (
       <div className="App">
         <header>
