@@ -1,12 +1,21 @@
 @import "../../scss/base";
 
 .Nav {
-  width: 12vw;
+  width: 14vw;
   background: $gray-900;
 
   button {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 1rem;
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      background: $gray-800;
+    }
+    &.active {
+      background: darken($gray-800, 1%);
+    }
   }
 }

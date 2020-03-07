@@ -19,3 +19,27 @@ html {
     background: $black;
   }
 }
+
+.map-tooltip {
+  display: block;
+  padding: 1rem;
+  background: $gray-900;
+  color: $gray-500;
+  transform: translate(-1rem, calc(-100% - 1.5rem));
+  min-width: 14rem;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    height: 1rem;
+    width: 1rem;
+    background: $gray-900;
+    transform: rotate(-45deg) translateX(1rem);
+    transform-origin: center;
+    z-index: -1;
+  }
+}

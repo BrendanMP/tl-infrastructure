@@ -4,8 +4,10 @@ import DeckGL, {
   GeoJsonLayer,
   MapController,
   ScatterplotLayer,
-  WebMercatorViewport
+  WebMercatorViewport,
+
 } from "deck.gl";
+import {DataFilterExtension} from '@deck.gl/extensions';
 import { StaticMap } from "react-map-gl";
 import { bbox } from "@turf/turf";
 
@@ -48,7 +50,7 @@ class Map extends Component {
   }
 
   _flyTo(data) {
-    const { viewState } = this.state;
+    const { viewState, hoveredObject} = this.state;
     const viewport = new WebMercatorViewport(viewState);
 
     const coords = [
@@ -77,7 +79,8 @@ class Map extends Component {
   }
 
   _renderLayers() {
-    const { data, poi } = this.props;
+    const { data, poi, layer } = this.props;
+    const { hoveredObject } = this.state;
 
     const activeIds = data.active ? data.active.map(item => item.id) : [];
 
@@ -89,18 +92,31 @@ class Map extends Component {
       getLineColor: item => {
         return [30, 75, 96];
       },
-      getFillColor: [255, 255, 255, 0],
+      getFillColor: (item) => {
+        // if (item === hoveredObject) {
+        //   return [31, 122, 113, 1];
+        // } else {
+        //   return [255, 255, 255, 0.8]
+        // }
+
+        return [255, 255, 255, 0.8]
+      },
       pickable: true,
       visible: true,
+      onHover: info => {
+        this.setState({
+          hoveredObject: info.object,
+          pointerX: info.x,
+          pointerY: info.y
+        })
+      },
       parameters: {
         depthTest: true
       },
       updateTriggers: {
-        getLineColor: activeIds
+        getLineColor: activeIds,
+        getFillColor: hoveredObject
       },
-      transitions: {
-        opacity: 0
-      }
     };
 
     const regions = [
@@ -161,11 +177,28 @@ class Map extends Component {
     const points = [
       new ScatterplotLayer({
         id: "poi-layer",
-        data: poi,
+        data: poi.filter(item => {
+          if (layer.id === item.groupid) {
+            if (data.id && data.active && data.active.length) {
+              return activeIds.includes(item[data.id])
+            } else {
+              return true
+            }
+          }
+        }),
         filled: true,
         getPosition: d => [Number(d.x), Number(d.y)],
         getFillColor: [255, 255, 255],
-        getRadius: 20
+        getRadius: 20,
+        radiusMinPixels: 2,
+        pickable: true,
+        onHover: info => {
+          this.setState({
+            hoveredObject: info.object,
+            pointerX: info.x,
+            pointerY: info.y
+          })
+        }
       })
     ];
 
@@ -175,6 +208,21 @@ class Map extends Component {
       data.id === "sub_communes" ? sub_communes : null,
       poi ? points : null
     ];
+  }
+
+  _renderTooltip() {
+    const {hoveredObject, pointerX, pointerY} = this.state || {};
+    return hoveredObject && (
+      <div className={'map-tooltip'} style={{
+        position: "absolute",
+        zIndex: 10,
+        pointerEvents: "none",
+        left: pointerX,
+        top: pointerY
+      }}>
+        { hoveredObject.name || hoveredObject.properties.label }
+      </div>
+    );
   }
 
   async componentDidMount() {
@@ -232,20 +280,26 @@ class Map extends Component {
 
     return (
       <div className="Map">
-        <DeckGL
-          viewState={viewState}
-          controller={{ type: MapController, doubleClickZoom: false }}
-          onViewStateChange={this._onViewStateChange}
-          layers={this._renderLayers()}
-        >
-          <StaticMap
-            id="map"
-            reuseMaps
-            mapStyle="mapbox://styles/brendan-transitlabs/ck7cnn3es0mri1ipaybyanphk"
-            preventStyleDiffing={true}
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-          />
-        </DeckGL>
+        <div>
+          <DeckGL
+            viewState={viewState}
+            controller={{ type: MapController, doubleClickZoom: false }}
+            onViewStateChange={this._onViewStateChange}
+            layers={this._renderLayers()}
+          >
+
+            <StaticMap
+              id="map"
+              reuseMaps
+              mapStyle="mapbox://styles/brendan-transitlabs/ck7cnn3es0mri1ipaybyanphk"
+              preventStyleDiffing={true}
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            />
+          </DeckGL>
+        </div>
+        <div style={{position: "absolute", zIndex: 20}}>
+          { this._renderTooltip() }
+        </div>
       </div>
     );
   }

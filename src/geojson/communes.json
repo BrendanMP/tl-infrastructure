@@ -3,6 +3,7 @@
   "generator": "overpass-ide",
   "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
   "timestamp": "2019-12-04T19:23:02Z",
+  "name": "communes",
   "features": [
     {
       "type": "Feature",
@@ -15,7 +16,17 @@
         "population": "120526",
         "type": "boundary",
         "wikidata": "Q493643",
-        "wikipedia": "fr:Treichville"
+        "wikipedia": "fr:Treichville",
+        "id": "relation/3308305",
+        "label": "Treichville",
+        "parent_id": "relation/3377982",
+        "area": "204267812.8",
+        "population_male_count": "51254",
+        "population_female_count": "51326",
+        "population_total_count": "102580",
+        "rm": "99.85972022",
+        "family_count": "22963",
+        "family_size_avg": "4.467186343"
       },
       "geometry": {
         "type": "Polygon",
@@ -169,7 +180,17 @@
         "population": "137502",
         "type": "boundary",
         "wikidata": "Q960327",
-        "wikipedia": "fr:Le Plateau"
+        "wikipedia": "fr:Le Plateau",
+        "id": "relation/3308306",
+        "label": "Plateau",
+        "parent_id": "relation/3377982",
+        "area": "150744105.3",
+        "population_male_count": "3602",
+        "population_female_count": "3886",
+        "population_total_count": "7488",
+        "rm": "92.69171384",
+        "family_count": "1571",
+        "family_size_avg": "4.766390834"
       },
       "geometry": {
         "type": "Polygon",
@@ -323,7 +344,17 @@
         "population": "600000",
         "type": "boundary",
         "wikidata": "Q3290197",
-        "wikipedia": "fr:Marcory"
+        "wikipedia": "fr:Marcory",
+        "id": "relation/3308780",
+        "label": "Marcory",
+        "parent_id": "relation/3377982",
+        "area": "117793413.8",
+        "population_male_count": "122942",
+        "population_female_count": "126916",
+        "population_total_count": "249858",
+        "rm": "96.86879511",
+        "family_count": "61006",
+        "family_size_avg": "4.095629938"
       },
       "geometry": {
         "type": "Polygon",
@@ -646,7 +677,17 @@
         "population": "251000",
         "type": "boundary",
         "wikidata": "Q1105423",
-        "wikipedia": "fr:Cocody"
+        "wikipedia": "fr:Cocody",
+        "id": "relation/3363950",
+        "label": "Cocody",
+        "parent_id": "relation/3377982",
+        "area": "48013365.44",
+        "population_male_count": "207382",
+        "population_female_count": "239673",
+        "population_total_count": "447055",
+        "rm": "86.52705979",
+        "family_count": "105180",
+        "family_size_avg": "4.2503803"
       },
       "geometry": {
         "type": "Polygon",
@@ -1412,7 +1453,17 @@
         "population": "317562",
         "type": "boundary",
         "wikidata": "Q1283513",
-        "wikipedia": "fr:Koumassi"
+        "wikipedia": "fr:Koumassi",
+        "id": "relation/3377741",
+        "label": "Koumassi",
+        "parent_id": "relation/3377982",
+        "area": "11733021.62",
+        "population_male_count": "212500",
+        "population_female_count": "220639",
+        "population_total_count": "433139",
+        "rm": "96.31116892",
+        "family_count": "92986",
+        "family_size_avg": "4.658109823"
       },
       "geometry": {
         "type": "Polygon",
@@ -1674,7 +1725,17 @@
         "population": "207586",
         "type": "boundary",
         "wikidata": "Q2870172",
-        "wikipedia": "fr:Attécoubé"
+        "wikipedia": "fr:Attécoubé",
+        "id": "relation/3377820",
+        "label": "Attécoubé",
+        "parent_id": "relation/3377982",
+        "area": "123069135.2",
+        "population_male_count": "133514",
+        "population_female_count": "127397",
+        "population_total_count": "260911",
+        "rm": "104.8015259",
+        "family_count": "56952",
+        "family_size_avg": "4.581243854"
       },
       "geometry": {
         "type": "Polygon",
@@ -2681,7 +2742,17 @@
         "population": "254290",
         "type": "boundary",
         "wikidata": "Q357695",
-        "wikipedia": "fr:Adjamé"
+        "wikipedia": "fr:Adjamé",
+        "id": "relation/3377835",
+        "label": "Adjamé",
+        "parent_id": "relation/3377982",
+        "area": "6355196.946",
+        "population_male_count": "193733",
+        "population_female_count": "179245",
+        "population_total_count": "372978",
+        "rm": "108.0827917",
+        "family_count": "77362",
+        "family_size_avg": "4.821204209"
       },
       "geometry": {
         "type": "Polygon",
@@ -3360,7 +3431,17 @@
         "population": "137502",
         "type": "boundary",
         "wikidata": "Q1491106",
-        "wikipedia": "fr:Port-Bouët"
+        "wikipedia": "fr:Port-Bouët",
+        "id": "relation/3377873",
+        "label": "Port-Bouet",
+        "parent_id": "relation/3377982",
+        "area": "131015419.2",
+        "population_male_count": "208655",
+        "population_female_count": "210378",
+        "population_total_count": "419033",
+        "rm": "99.18099801",
+        "family_count": "102013",
+        "family_size_avg": "4.107643144"
       },
       "geometry": {
         "type": "Polygon",
@@ -4107,7 +4188,17 @@
         "short_name": "Yop",
         "type": "boundary",
         "wikidata": "Q1470529",
-        "wikipedia": "fr:Yopougon"
+        "wikipedia": "fr:Yopougon",
+        "id": "relation/3377881",
+        "label": "Yopougon",
+        "parent_id": "relation/3377982",
+        "area": "369354792.2",
+        "population_male_count": "523952",
+        "population_female_count": "547591",
+        "population_total_count": "1071543",
+        "rm": "95.68309194",
+        "family_count": "219651",
+        "family_size_avg": "4.878388899"
       },
       "geometry": {
         "type": "Polygon",
@@ -4713,7 +4804,17 @@
         "place": "city",
         "population": "1500000",
         "type": "boundary",
-        "wikidata": "Q322624"
+        "wikidata": "Q322624",
+        "id": "relation/3377895",
+        "label": "Abobo",
+        "parent_id": "relation/3377982",
+        "area": "14845838.76",
+        "population_male_count": "522992",
+        "population_female_count": "507666",
+        "population_total_count": "1030658",
+        "rm": "103.018914",
+        "family_count": "208683",
+        "family_size_avg": "4.938869002"
       },
       "geometry": {
         "type": "Polygon",
@@ -5184,7 +5285,17 @@
         "boundary": "administrative",
         "name": "Anyama",
         "place": "city",
-        "type": "boundary"
+        "type": "boundary",
+        "id": "relation/3377941",
+        "label": "Anyama",
+        "parent_id": "relation/3377982",
+        "area": "18006416.35",
+        "population_male_count": "75882",
+        "population_female_count": "73080",
+        "population_total_count": "148962",
+        "rm": "103.8341544",
+        "family_count": "29633",
+        "family_size_avg": "5.026895691"
       },
       "geometry": {
         "type": "Polygon",
@@ -9895,7 +10006,17 @@
         "boundary": "administrative",
         "name": "Bingerville",
         "place": "city",
-        "type": "boundary"
+        "type": "boundary",
+        "id": "relation/3377922",
+        "label": "Bingerville",
+        "parent_id": "relation/3377982",
+        "area": "22385685.92",
+        "population_male_count": "44443",
+        "population_female_count": "46876",
+        "population_total_count": "91319",
+        "rm": "94.80971073",
+        "family_count": "20355",
+        "family_size_avg": "4.486317858"
       },
       "geometry": {
         "type": "Polygon",
@@ -10378,7 +10499,17 @@
         "boundary": "administrative",
         "name": "Songon",
         "place": "city",
-        "type": "boundary"
+        "type": "boundary",
+        "id": "relation/3377972",
+        "label": "Songon",
+        "parent_id": "relation/3377982",
+        "area": "749696153.6",
+        "population_male_count": "28538",
+        "population_female_count": "27500",
+        "population_total_count": "56038",
+        "rm": "103.7745455",
+        "family_count": "14136",
+        "family_size_avg": "3.964204867"
       },
       "geometry": {
         "type": "Polygon",

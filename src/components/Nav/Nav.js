@@ -4,15 +4,14 @@ import "./Nav.scss";
 
 class Nav extends Component {
   render() {
-    const { items } = this.props;
-
+    const { items, clicked, active } = this.props;
     return (
       <div className="Nav d-flex flex-column justify-content-center">
         <ul className="list-unstyled">
           {items.length
             ? items.map(item => (
                 <li key={item.id}>
-                  <button className="btn btn-block text-left">
+                  <button className={`btn btn-block text-left ${active.id === item.id ? 'active' : ''}`} onClick={() => clicked(item)}>
                     {item.label}
                   </button>
                 </li>

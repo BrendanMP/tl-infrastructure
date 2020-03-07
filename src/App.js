@@ -18,6 +18,7 @@ class App extends Component {
         active: {},
         items: []
       },
+      layer: {},
       legend: {
         label: "Legend Label",
         items: [
@@ -80,18 +81,23 @@ class App extends Component {
       }
     };
 
-    this.selectZone = this.selectZone.bind(this);
+    this._selectZone = this._selectZone.bind(this);
     this._storeData = this._storeData.bind(this);
+    this._clickedNav = this._clickedNav.bind(this);
   }
 
-  selectZone(zone) {
+  _selectZone(zone) {
     const zones = this.state.zones;
     zones.active = zone;
     this.setState({ zones });
   }
 
-  _storeData(data) {
-    this.setState({ zones: data });
+  _clickedNav(layer) {
+    this.setState({layer})
+  }
+
+  _storeData(zones, poi) {
+    this.setState({ zones, poi });
   }
 
   async componentDidMount() {
@@ -101,7 +107,7 @@ class App extends Component {
       );
 
       const poi = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/poi_v2`
+        `https://tl-socket-server.herokuapp.com/api/poi_v3`
       );
 
       await Promise.all(
@@ -145,14 +151,14 @@ class App extends Component {
         items: data
       };
 
-      this.setState({ zones, poi: poi.data });
+      this._storeData(zones, poi.data)
     } catch (e) {
       console.log(e);
     }
   }
 
   render() {
-    const { legend, charts, zones, poi } = this.state;
+    const { legend, charts, zones, poi, layer } = this.state;
 
     return (
       <div className="App">
@@ -160,12 +166,12 @@ class App extends Component {
           <MultiSelect
             selected={zones.active}
             options={zones.items}
-            onChange={this.selectZone}
+            onChange={this._selectZone}
           />
         </header>
         <main>
-          <Nav items={zones.active.layers ? zones.active.layers.groups : []} />
-          <Map data={zones.active} poi={poi ? poi : []} />
+          <Nav items={zones.active.layers ? zones.active.layers.groups : []} clicked={this._clickedNav} active={layer} />
+          <Map data={zones.active} poi={poi ? poi : []} layer={layer} />
           <Sidebar legend={legend} charts={charts} />
         </main>
       </div>
