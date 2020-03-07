@@ -176,9 +176,9 @@ class Map extends Component {
         data: points,
         filled: true,
         getPosition: d => [Number(d.x), Number(d.y)],
-        getFillColor: [255, 255, 255],
+        getFillColor: item => (layer.id ? item.typecolor : item.groupcolor),
         getRadius: 20,
-        radiusMinPixels: 2,
+        radiusMinPixels: 1,
         pickable: true,
         onHover: info => {
           this.setState({
@@ -186,6 +186,9 @@ class Map extends Component {
             pointerX: info.x,
             pointerY: info.y
           });
+        },
+        updateTriggers: {
+          getFillColor: layer.id
         }
       })
     ];
@@ -216,13 +219,6 @@ class Map extends Component {
         </div>
       )
     );
-  }
-
-  async componentDidMount() {
-    try {
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   componentDidUpdate(prevProps) {

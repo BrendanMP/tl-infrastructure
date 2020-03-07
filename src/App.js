@@ -10,6 +10,19 @@ import MultiSelect from "./components/MultSelect/MultiSelect";
 
 import "./scss/main.scss";
 
+const COLORS = [
+  [1, 152, 189],
+  [73, 227, 206],
+  [216, 254, 181],
+  [254, 237, 177],
+  [254, 173, 84],
+  [254, 173, 84],
+  [254, 173, 84],
+  [254, 173, 84],
+  [254, 120, 78],
+  [254, 120, 78]
+];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -124,23 +137,20 @@ class App extends Component {
     return filtered || [];
   }
 
-  _storeData(zones, points) {
-    localStorage.setItem("zones", JSON.stringify(zones));
-    localStorage.setItem("points", JSON.stringify(points));
-
-    this.setState({ zones, points });
+  _storeData(zones, points, types) {
+    this.setState({ zones, points, types });
   }
 
   async componentDidMount() {
     try {
-      const storedZones = localStorage.getItem("zones");
-      const storedPoints = localStorage.getItem("points");
+      // const storedZones = localStorage.getItem("zones");
+      // const storedPoints = localStorage.getItem("points");
+      //
+      // if (storedZones && storedPoints) {
+      //   this._storeData(JSON.parse(storedZones), JSON.parse(storedPoints));
+      // }
 
-      if (storedZones && storedPoints) {
-        this._storeData(JSON.parse(storedZones), JSON.parse(storedPoints));
-      }
-
-      const { data } = await axios.get(
+      const zones = await axios.get(
         `https://tl-socket-server.herokuapp.com/api/zones`
       );
 
@@ -148,14 +158,14 @@ class App extends Component {
         `https://tl-socket-server.herokuapp.com/api/poi_v4`
       );
 
+      const types = await axios.get(
+        `https://tl-socket-server.herokuapp.com/api/poi_types`
+      );
+
       await Promise.all(
-        data.map(async item => {
+        zones.data.map(async item => {
           const items = await axios.get(
             `https://tl-socket-server.herokuapp.com/api/${item.id}`
-          );
-
-          const layers = await axios.get(
-            `https://tl-socket-server.herokuapp.com/api/${item.id}_attributes_v2`
           );
 
           items.data.map(item => {
@@ -166,44 +176,35 @@ class App extends Component {
 
           item.items = items.data;
 
-          const groups = await groupBy(layers.data, "groupid");
-
-          item.layers = {
-            active: [],
-            items: layers.data,
-            groups: Object.keys(groups).map((key, i) => {
-              return {
-                id: groups[key][0].groupid,
-                value: groups[key][0].groupid,
-                label: groups[key][0].grouplabel
-              };
-            })
-          };
-
           return item;
         })
       );
 
-      const zones = {
-        active: {},
-        items: data
-      };
+      const points = poi.data.map(item => {
+        const match = types.data.find(type => {
+          return type.id === item.typeid;
+        });
 
-      if (
-        data !== JSON.parse(storedZones) ||
-        poi.data !== JSON.parse(storedPoints)
-      ) {
-        this._storeData(zones, poi.data);
-      }
+        item.groupcolor = COLORS[match.groupcolor];
+        item.typecolor = COLORS[match.typecolor];
+        return item;
+      });
+
+      this._storeData(
+        {
+          active: {},
+          items: zones.data
+        },
+        points,
+        types.data
+      );
     } catch (e) {
       console.log(e);
     }
   }
 
   render() {
-    const { charts, layer, legend, zones, points } = this.state;
-
-    const layers = zones.active.layers ? zones.active.layers.groups : [];
+    const { charts, layer, legend, zones, points, types } = this.state;
 
     return (
       <div className="App">
@@ -215,7 +216,7 @@ class App extends Component {
           />
         </header>
         <main>
-          <Nav items={layers} active={layer} clicked={this._clickedNav} />
+          <Nav types={types} active={layer} clicked={this._clickedNav} />
           <Map
             data={zones.active}
             points={this._filterPoints(points)}
