@@ -5,6 +5,7 @@ import { groupBy } from "lodash";
 import Map from "./components/Map/Map";
 import Nav from "./components/Nav/Nav";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Legend from "./components/Legend/Legend";
 
 import MultiSelect from "./components/MultSelect/MultiSelect";
 
@@ -140,19 +141,14 @@ class App extends Component {
     return filtered || [];
   }
 
+  _createLegend() {}
+
   _storeData(zones, points, types) {
     this.setState({ zones, points, types });
   }
 
   async componentDidMount() {
     try {
-      // const storedZones = localStorage.getItem("zones");
-      // const storedPoints = localStorage.getItem("points");
-      //
-      // if (storedZones && storedPoints) {
-      //   this._storeData(JSON.parse(storedZones), JSON.parse(storedPoints));
-      // }
-
       const zones = await axios.get(
         `https://tl-socket-server.herokuapp.com/api/zones`
       );
@@ -193,13 +189,25 @@ class App extends Component {
         return item;
       });
 
+      const groups = groupBy(types.data, "groupid");
+
+      const nav = Object.keys(groups).map((key, i) => {
+        return {
+          id: groups[key][0].groupid,
+          value: groups[key][0].groupid,
+          label: groups[key][0].grouplabel,
+          groupcolor: groups[key][0].groupcolor,
+          items: groups[key]
+        };
+      });
+
       this._storeData(
         {
           active: {},
           items: zones.data
         },
         points,
-        types.data
+        nav
       );
     } catch (e) {
       console.log(e);
@@ -209,7 +217,25 @@ class App extends Component {
   render() {
     const { charts, layer, legend, zones, points, types } = this.state;
 
-    const leg = [];
+    let foo;
+
+    if (layer.id && layer.items) {
+      foo = layer.items.map(item => {
+        return {
+          id: item.id,
+          label: item.label,
+          color: COLORS[item.typecolor]
+        };
+      });
+    } else if (types && !layer.id) {
+      foo = types.map(item => {
+        return {
+          id: item.id,
+          label: item.label,
+          color: COLORS[item.groupcolor]
+        };
+      });
+    }
 
     return (
       <div className="App">
@@ -226,9 +252,22 @@ class App extends Component {
             data={zones.active}
             points={this._filterPoints(points)}
             layer={layer}
+            legend={foo}
           />
           <Sidebar legend={legend} charts={charts} />
         </main>
+        <pre
+          style={{
+            position: "fixed",
+            bottom: 20,
+            right: 20,
+            zIndex: 20,
+            fontSize: 14
+          }}
+          className={"bg-light p-3 mb-0 d-none"}
+        >
+          {JSON.stringify(foo, null, 2)}
+        </pre>
       </div>
     );
   }

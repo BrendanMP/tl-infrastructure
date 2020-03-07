@@ -10,6 +10,8 @@ import { DataFilterExtension } from "@deck.gl/extensions";
 import { StaticMap } from "react-map-gl";
 import { bbox } from "@turf/turf";
 
+import Legend from "../Legend/Legend";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./Map.scss";
 
@@ -266,6 +268,7 @@ class Map extends Component {
 
   render() {
     const { viewState } = this.state;
+    const { legend } = this.props;
 
     return (
       <div className="Map">
@@ -288,6 +291,7 @@ class Map extends Component {
         <div style={{ position: "absolute", zIndex: 20 }}>
           {this._renderTooltip()}
         </div>
+        <Legend legend={legend}></Legend>
       </div>
     );
   }

@@ -1,0 +1,25 @@
+.Legend {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  &__item {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    margin-bottom: 1rem;
+    span {
+      display: flex;
+      align-items: center;
+    }
+    &-color {
+      width: 1.2rem;
+      height: 1.2rem;
+      background: gray;
+      margin-right: 0.75rem;
+      border-radius: 50rem;
+    }
+    &-label {
+      transform: translateY(0.1em);
+    }
+  }
+}
