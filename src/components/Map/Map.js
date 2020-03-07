@@ -178,11 +178,6 @@ class Map extends Component {
             } else {
               return true
             }
-            // if (data.id && data.active && data.active.length) {
-            //   return activeIds.includes(item[data.id])
-            // } else {
-            //   return true
-            // }
           }
         }),
         filled: true,
