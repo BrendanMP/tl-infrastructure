@@ -177,7 +177,7 @@ class Map extends Component {
         filled: true,
         getPosition: d => [Number(d.x), Number(d.y)],
         getFillColor: item => (layer.id ? item.typecolor : item.groupcolor),
-        getRadius: 20,
+        getRadius: 30,
         radiusMinPixels: 1,
         pickable: true,
         onHover: info => {

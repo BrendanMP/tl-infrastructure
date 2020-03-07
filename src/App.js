@@ -119,6 +119,9 @@ class App extends Component {
             if (layer.id && layer.id === item.groupid) {
               return true;
             }
+            if (!layer.id) {
+              return true;
+            }
           })
           .filter(item => {
             const { active, id } = zones.active;
@@ -205,6 +208,8 @@ class App extends Component {
 
   render() {
     const { charts, layer, legend, zones, points, types } = this.state;
+
+    const leg = [];
 
     return (
       <div className="App">
