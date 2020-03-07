@@ -4,10 +4,9 @@ import DeckGL, {
   GeoJsonLayer,
   MapController,
   ScatterplotLayer,
-  WebMercatorViewport,
-
+  WebMercatorViewport
 } from "deck.gl";
-import {DataFilterExtension} from '@deck.gl/extensions';
+import { DataFilterExtension } from "@deck.gl/extensions";
 import { StaticMap } from "react-map-gl";
 import { bbox } from "@turf/turf";
 
@@ -19,13 +18,16 @@ import COMMUNES from "../../geojson/communes";
 import SUB_COMMUNES from "../../geojson/sub_communes";
 
 const INITIAL_VIEWSTATE = {
-  longitude: -4.018763,
-  latitude: 5.341548,
-  zoom: 11.71,
-  pitch: 0,
-  bearing: 0,
-  height: 500,
-  width: 500
+  width: 1690,
+  height: 1268,
+  latitude: 7.162681268559845,
+  longitude: -5.316224735005939,
+  zoom: 6.177819528655691,
+  altitude: 1.5,
+  maxZoom: 20,
+  minZoom: 0,
+  maxPitch: 60,
+  minPitch: 0
 };
 
 const ZONES = [
@@ -50,7 +52,7 @@ class Map extends Component {
   }
 
   _flyTo(data) {
-    const { viewState, hoveredObject} = this.state;
+    const { viewState, hoveredObject } = this.state;
     const viewport = new WebMercatorViewport(viewState);
 
     const coords = [
@@ -79,7 +81,7 @@ class Map extends Component {
   }
 
   _renderLayers() {
-    const { data, poi, layer } = this.props;
+    const { data, points, layer } = this.props;
     const { hoveredObject } = this.state;
 
     const activeIds = data.active ? data.active.map(item => item.id) : [];
@@ -92,8 +94,8 @@ class Map extends Component {
       getLineColor: item => {
         return [30, 75, 96];
       },
-      getFillColor: (item) => {
-        return [255, 255, 255, 0.8]
+      getFillColor: item => {
+        return [255, 255, 255, 0.8];
       },
       pickable: true,
       visible: true,
@@ -102,7 +104,7 @@ class Map extends Component {
           hoveredObject: info.object,
           pointerX: info.x,
           pointerY: info.y
-        })
+        });
       },
       parameters: {
         depthTest: true
@@ -110,7 +112,7 @@ class Map extends Component {
       updateTriggers: {
         getLineColor: activeIds,
         getFillColor: hoveredObject
-      },
+      }
     };
 
     const regions = [
@@ -168,18 +170,10 @@ class Map extends Component {
       })
     ];
 
-    const points = [
+    const poi = [
       new ScatterplotLayer({
         id: "poi-layer",
-        data: poi.filter(item => {
-          if (layer.id === item.groupid) {
-            if (data.id && data.active && data.active.length) {
-              return activeIds.includes(item[data.id])
-            } else {
-              return true
-            }
-          }
-        }),
+        data: points,
         filled: true,
         getPosition: d => [Number(d.x), Number(d.y)],
         getFillColor: [255, 255, 255],
@@ -191,7 +185,7 @@ class Map extends Component {
             hoveredObject: info.object,
             pointerX: info.x,
             pointerY: info.y
-          })
+          });
         }
       })
     ];
@@ -200,22 +194,27 @@ class Map extends Component {
       data.id === "regions" ? regions : null,
       data.id === "communes" ? communes : null,
       data.id === "sub_communes" ? sub_communes : null,
-      poi ? points : null
+      points ? poi : null
     ];
   }
 
   _renderTooltip() {
-    const {hoveredObject, pointerX, pointerY} = this.state || {};
-    return hoveredObject && (
-      <div className={'map-tooltip'} style={{
-        position: "absolute",
-        zIndex: 10,
-        pointerEvents: "none",
-        left: pointerX,
-        top: pointerY
-      }}>
-        { hoveredObject.name || hoveredObject.properties.label }
-      </div>
+    const { hoveredObject, pointerX, pointerY } = this.state || {};
+    return (
+      hoveredObject && (
+        <div
+          className={"map-tooltip"}
+          style={{
+            position: "absolute",
+            zIndex: 10,
+            pointerEvents: "none",
+            left: pointerX,
+            top: pointerY
+          }}
+        >
+          {hoveredObject.name || hoveredObject.properties.label}
+        </div>
+      )
     );
   }
 
@@ -281,7 +280,6 @@ class Map extends Component {
             onViewStateChange={this._onViewStateChange}
             layers={this._renderLayers()}
           >
-
             <StaticMap
               id="map"
               reuseMaps
@@ -291,8 +289,8 @@ class Map extends Component {
             />
           </DeckGL>
         </div>
-        <div style={{position: "absolute", zIndex: 20}}>
-          { this._renderTooltip() }
+        <div style={{ position: "absolute", zIndex: 20 }}>
+          {this._renderTooltip()}
         </div>
       </div>
     );
