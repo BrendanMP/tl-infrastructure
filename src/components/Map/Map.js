@@ -93,12 +93,6 @@ class Map extends Component {
         return [30, 75, 96];
       },
       getFillColor: (item) => {
-        // if (item === hoveredObject) {
-        //   return [31, 122, 113, 1];
-        // } else {
-        //   return [255, 255, 255, 0.8]
-        // }
-
         return [255, 255, 255, 0.8]
       },
       pickable: true,
@@ -184,6 +178,11 @@ class Map extends Component {
             } else {
               return true
             }
+            // if (data.id && data.active && data.active.length) {
+            //   return activeIds.includes(item[data.id])
+            // } else {
+            //   return true
+            // }
           }
         }),
         filled: true,

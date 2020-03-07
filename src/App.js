@@ -107,7 +107,7 @@ class App extends Component {
       );
 
       const poi = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/poi_v3`
+        `https://tl-socket-server.herokuapp.com/api/poi_v4`
       );
 
       await Promise.all(
