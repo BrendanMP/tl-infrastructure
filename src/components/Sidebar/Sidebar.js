@@ -15,36 +15,26 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { legend, charts } = this.props;
+    const { charts } = this.props;
+
+    console.log(charts);
     return (
       <div className="Sidebar">
-        {legend ? (
-          <section className="Sidebar__legend" style={{ flex: "0 0 auto" }}>
-            <header>{legend.label}</header>
-            <article>
-              <ul className="list-unstyled mb-0">
-                {legend.items.map(item => (
-                  <li className="Sidebar__legend-item" key={item.id}>
-                    <span
-                      className="Sidebar__legend-color"
-                      style={{ backgroundColor: item.color }}
-                    ></span>
-                    <span className="Sidebar__legend-label">{item.label}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </section>
-        ) : null}
-
         <section>
           <header>{charts.label}</header>
           <article>
-            {charts.items.map(item => (
-              <div className="Sidebar__chart" key={item.id}>
-                {this.renderCharts(item)}
-              </div>
-            ))}
+            {charts.items.length
+              ? charts.items.map(item => (
+                  <div
+                    className={`Sidebar__chart ${
+                      !item.data.values.length ? "d-none" : null
+                    }`}
+                    key={item.id}
+                  >
+                    {this.renderCharts(item)}
+                  </div>
+                ))
+              : null}
           </article>
         </section>
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import hexRgb from "hex-rgb";
 import axios from "axios";
 import { groupBy } from "lodash";
 
@@ -11,18 +12,39 @@ import MultiSelect from "./components/MultSelect/MultiSelect";
 
 import "./scss/main.scss";
 
+function trimHex(hex) {
+  const arr = hexRgb(hex, { format: "array" });
+  arr.pop();
+  return arr;
+}
+
 const COLORS = [
-  [1, 152, 189],
-  [73, 227, 206],
-  [216, 254, 181],
-  [254, 237, 177],
-  [254, 173, 84],
-  [254, 173, 84],
-  [254, 173, 84],
-  [254, 173, 84],
-  [254, 120, 78],
-  [254, 120, 78]
+  trimHex("#d3ecf0"),
+  trimHex("#42d4e6"),
+  trimHex("#49bf9f"),
+  trimHex("#fffaac"),
+  trimHex("#ff9992"),
+  trimHex("#ff5e52"),
+  trimHex("#836bff"),
+  trimHex("#c040d7"),
+  trimHex("#d3ecf0"),
+  trimHex("#d3ecf0"),
+  trimHex("#d3ecf0")
 ];
+
+const CHART_COLORS = [
+  trimHex("#49bf9f"),
+  trimHex("#fffaac"),
+  trimHex("#ff5e52"),
+  trimHex("#836bff"),
+  trimHex("#c040d7")
+];
+
+const CONVERT_OPERATOR = {
+  divide: function(x, y) {
+    return x / y;
+  }
+};
 
 class App extends Component {
   constructor(props) {
@@ -45,51 +67,6 @@ class App extends Component {
             id: "2",
             label: "Demo Label 2",
             color: "deepskyblue"
-          }
-        ]
-      },
-      charts: {
-        label: "Charts Label",
-        items: [
-          {
-            id: "chart1",
-            label: "Chart 1 Label",
-            type: "StackChart",
-            data: {
-              min: 3,
-              max: 7,
-              unit: "k",
-              values: [
-                {
-                  value: 4,
-                  color: "tomato"
-                },
-                {
-                  value: 5,
-                  color: "deepskyblue"
-                }
-              ]
-            }
-          },
-          {
-            id: "chart2",
-            label: "Chart 2 Label",
-            type: "StackChart",
-            data: {
-              min: 30,
-              max: 500,
-              unit: "k",
-              values: [
-                {
-                  value: 300,
-                  color: "tomato"
-                },
-                {
-                  value: 200,
-                  color: "deepskyblue"
-                }
-              ]
-            }
           }
         ]
       }
@@ -141,10 +118,70 @@ class App extends Component {
     return filtered || [];
   }
 
-  _createLegend() {}
+  _createLegend() {
+    const { layer, types } = this.state;
+    if (layer.id && layer.items) {
+      return layer.items.map(item => {
+        return {
+          id: item.id,
+          label: item.label,
+          color: COLORS[item.typecolor]
+        };
+      });
+    } else if (types && !layer.id) {
+      return types.map(item => {
+        return {
+          id: item.id,
+          label: item.label,
+          color: COLORS[item.groupcolor]
+        };
+      });
+    }
+  }
 
-  _storeData(zones, points, types) {
-    this.setState({ zones, points, types });
+  _createCharts() {
+    const { zones, layer, points, charts } = this.state;
+
+    let items = [];
+
+    if (zones.active.id) {
+      if (zones.active.active && zones.active.active.length) {
+        items = zones.active.active;
+      }
+    }
+
+    let min, max;
+
+    return {
+      label: zones.active.id ? zones.active.label : " ",
+      items: charts
+        ? charts
+            .filter(chart => chart.groupid === layer.id)
+            .map((chart, i) => {
+              return {
+                id: chart.id,
+                label: chart.label,
+                type: chart.type,
+                data: {
+                  min: Number(chart.min),
+                  max: Number(chart.max),
+                  unit: chart.unit,
+                  values: items.map((item, i) => {
+                    return {
+                      value: item[chart.id],
+                      color: CHART_COLORS[i],
+                      label: item.label
+                    };
+                  })
+                }
+              };
+            })
+        : []
+    };
+  }
+
+  _storeData(zones, points, types, charts) {
+    this.setState({ zones, points, types, charts });
   }
 
   async componentDidMount() {
@@ -159,6 +196,10 @@ class App extends Component {
 
       const types = await axios.get(
         `https://tl-socket-server.herokuapp.com/api/poi_types`
+      );
+
+      const charts = await axios.get(
+        `https://tl-socket-server.herokuapp.com/api/charts`
       );
 
       await Promise.all(
@@ -197,7 +238,8 @@ class App extends Component {
           value: groups[key][0].groupid,
           label: groups[key][0].grouplabel,
           groupcolor: groups[key][0].groupcolor,
-          items: groups[key]
+          items: groups[key],
+          disabled: groups[key][0].hidden === "TRUE" ? true : false
         };
       });
 
@@ -207,7 +249,8 @@ class App extends Component {
           items: zones.data
         },
         points,
-        nav
+        nav,
+        charts.data
       );
     } catch (e) {
       console.log(e);
@@ -215,31 +258,11 @@ class App extends Component {
   }
 
   render() {
-    const { charts, layer, legend, zones, points, types } = this.state;
-
-    let foo;
-
-    if (layer.id && layer.items) {
-      foo = layer.items.map(item => {
-        return {
-          id: item.id,
-          label: item.label,
-          color: COLORS[item.typecolor]
-        };
-      });
-    } else if (types && !layer.id) {
-      foo = types.map(item => {
-        return {
-          id: item.id,
-          label: item.label,
-          color: COLORS[item.groupcolor]
-        };
-      });
-    }
+    const { charts, layer, zones, points, types } = this.state;
 
     return (
       <div className="App">
-        <header>
+        <header className="App__header">
           <MultiSelect
             selected={zones.active}
             options={zones.items}
@@ -250,24 +273,12 @@ class App extends Component {
           <Nav types={types} active={layer} clicked={this._clickedNav} />
           <Map
             data={zones.active}
-            points={this._filterPoints(points)}
             layer={layer}
-            legend={foo}
-          />
-          <Sidebar legend={legend} charts={charts} />
+            points={this._filterPoints(points)}
+            legend={this._createLegend()}
+          ></Map>
+          <Sidebar charts={this._createCharts()} />
         </main>
-        <pre
-          style={{
-            position: "fixed",
-            bottom: 20,
-            right: 20,
-            zIndex: 20,
-            fontSize: 14
-          }}
-          className={"bg-light p-3 mb-0 d-none"}
-        >
-          {JSON.stringify(foo, null, 2)}
-        </pre>
       </div>
     );
   }

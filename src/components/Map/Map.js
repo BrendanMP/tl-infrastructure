@@ -6,7 +6,6 @@ import DeckGL, {
   ScatterplotLayer,
   WebMercatorViewport
 } from "deck.gl";
-import { DataFilterExtension } from "@deck.gl/extensions";
 import { StaticMap } from "react-map-gl";
 import { bbox } from "@turf/turf";
 
@@ -86,7 +85,9 @@ class Map extends Component {
     const { data, points, layer } = this.props;
     const { hoveredObject } = this.state;
 
-    const activeIds = data.active ? data.active.map(item => item.id) : [];
+    const activeIds = data.active
+      ? data.active.map(item => item.id.toString())
+      : [];
 
     const borderStyle = {
       stroked: true,
@@ -160,11 +161,11 @@ class Map extends Component {
         ...borderStyle
       }),
       new GeoJsonLayer({
-        id: "communes-active-layer",
+        id: "subcommunes-active-layer",
         data: {
           type: "FeatureCollection",
           features: SUB_COMMUNES.features.filter(item =>
-            activeIds.includes(item.id)
+            activeIds.includes(item.id.toString())
           )
         },
         ...borderStyle,
@@ -217,7 +218,19 @@ class Map extends Component {
             top: pointerY
           }}
         >
-          {hoveredObject.name || hoveredObject.properties.label}
+          <div className="row">
+            <div className="col-12">
+              <p className="mb-1 text-muted">Name</p>
+              {hoveredObject.name ||
+                hoveredObject.properties.label ||
+                hoveredObject.properties.NOM_QUAR}
+            </div>
+            {hoveredObject.population_total_count ? (
+              <div className="col-12 mt-3">
+                <p className="mb-1 text-muted">Population</p>
+              </div>
+            ) : null}
+          </div>
         </div>
       )
     );

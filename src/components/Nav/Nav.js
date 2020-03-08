@@ -7,22 +7,37 @@ class Nav extends Component {
     const { types, clicked, active } = this.props;
     return (
       <div className="Nav d-flex flex-column justify-content-center">
-        <ul className="list-unstyled">
-          {types && types.length
-            ? types.map(item => (
+        <div>
+          {types && types.length ? (
+            <ul className="list-unstyled">
+              <li>
+                <button
+                  className={`btn btn-block text-left ${
+                    !active.id ? "active" : ""
+                  }`}
+                  onClick={() => clicked({})}
+                >
+                  All
+                </button>
+              </li>
+              {types.map(item => (
                 <li key={item.id}>
                   <button
                     className={`btn btn-block text-left ${
                       active.id === item.id ? "active" : ""
                     }`}
                     onClick={() => clicked(item)}
+                    disabled={item.disabled}
                   >
                     {item.label}
                   </button>
                 </li>
-              ))
-            : null}
-        </ul>
+              ))}
+            </ul>
+          ) : (
+            <div className="p-3 text-muted">Loading...</div>
+          )}
+        </div>
       </div>
     );
   }

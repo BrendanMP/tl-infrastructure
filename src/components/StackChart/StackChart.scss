@@ -24,6 +24,11 @@
       padding-left: 0.5rem;
       line-height: 0;
       font-size: 0.8em;
+      transition: width 100ms ease-in-out;
+    }
+
+    &-text {
+      font-size: 0.8em;
     }
   }
 }

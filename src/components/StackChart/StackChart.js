@@ -13,22 +13,22 @@ class StackChart extends Component {
       <div className="StackChart">
         <header>{chart.label}</header>
         <article>
-          <div>
-            {values.map((item, i) => (
+          {values.map((item, i) => (
+            <div>
               <div className="StackChart__bar" key={`${item}_${i}`}>
                 <div
                   className="StackChart__bar-inner text-white"
                   style={{
-                    backgroundColor: item.color,
+                    backgroundColor: `rgb(${item.color[0]},${item.color[1]},${item.color[2]})`,
                     width: this.getWidth(min, max, item.value)
                   }}
                 >
-                  {item.value}
-                  {unit}
+                  &nbsp;
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="StackChart__bar-text">{item.label}</div>
+            </div>
+          ))}
         </article>
         <footer className="d-flex justify-content-between">
           <span>{min + unit}</span>

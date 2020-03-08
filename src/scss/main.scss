@@ -12,11 +12,13 @@ html {
   > main {
     flex: 1 1 auto;
     display: flex;
+    position: relative;
   }
 
-  > header {
+  &__header {
     padding: 0.5rem 1rem;
     background: $black;
+    height: 3rem;
   }
 }
 

@@ -5,6 +5,10 @@
   flex-direction: column;
   flex: 0 1 auto;
   width: 20vw;
+  height: calc(100vh - 3rem);
+  overflow: scroll;
+  background: $black;
+
 
   section {
     flex: 1 1 auto;
@@ -12,17 +16,17 @@
     flex-direction: column;
     > header {
       padding: 1rem;
-      //border-bottom: 1px solid $gray-700;
-      border-left: 6px solid $gray-700;
-      background: $gray-800;
+      background: lighten($black, 1%);
     }
     > article {
       padding: 1rem;
       flex: 1 1 auto;
       margin-bottom: 3rem;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
     }
+  }
+
+  &__charts {
+    overflow: scroll;
   }
 
   &__legend {

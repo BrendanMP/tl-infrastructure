@@ -2,7 +2,7 @@
 
 .Nav {
   width: 14vw;
-  background: $gray-900;
+  background: lighten($black, 1%);
 
   button {
     text-transform: uppercase;
