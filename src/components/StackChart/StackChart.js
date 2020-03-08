@@ -11,10 +11,11 @@ class StackChart extends Component {
     const { min, max, values, unit } = chart.data;
     return (
       <div className="StackChart">
-        <header>{chart.label}</header>
+        <header className={"mb-1"}>{chart.label}</header>
         <article>
           {values.map((item, i) => (
-            <div>
+            <div key={`${item.id}-${i}`}>
+              <div className="StackChart__bar-text">{item.label}</div>
               <div className="StackChart__bar" key={`${item}_${i}`}>
                 <div
                   className="StackChart__bar-inner text-white"
@@ -26,13 +27,12 @@ class StackChart extends Component {
                   &nbsp;
                 </div>
               </div>
-              <div className="StackChart__bar-text">{item.label}</div>
             </div>
           ))}
         </article>
         <footer className="d-flex justify-content-between">
-          <span>{min + unit}</span>
-          <span>{max + unit}</span>
+          <span>{min + unit} (Min)</span>
+          <span>{max + unit} (Max)</span>
         </footer>
       </div>
     );

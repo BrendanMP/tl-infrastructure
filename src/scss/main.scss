@@ -45,3 +45,34 @@ html {
     z-index: -1;
   }
 }
+
+.Demographics {
+  border-bottom: 1px solid $gray-700;
+
+  padding: 2rem 1rem;
+  transition: background-color 300ms ease-in-out;
+
+  &:hover {
+    background: $gray-900
+  }
+
+
+  h5 {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    color: $gray-700;
+  }
+
+  h6 {
+    margin-bottom: 1rem;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-size: 0.8rem;
+  }
+}

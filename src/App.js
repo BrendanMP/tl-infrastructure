@@ -258,7 +258,9 @@ class App extends Component {
   }
 
   render() {
-    const { charts, layer, zones, points, types } = this.state;
+    const { layer, zones, points, types } = this.state;
+
+    const demographics = zones.active.items || [];
 
     return (
       <div className="App">
@@ -277,7 +279,7 @@ class App extends Component {
             points={this._filterPoints(points)}
             legend={this._createLegend()}
           ></Map>
-          <Sidebar charts={this._createCharts()} />
+          <Sidebar charts={this._createCharts()} demographics={demographics} />
         </main>
       </div>
     );
