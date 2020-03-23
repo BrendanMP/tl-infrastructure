@@ -27,16 +27,12 @@ class Sidebar extends Component {
   render() {
     const { charts, demographics } = this.props;
 
-    const hasItems = charts.items
-      .map(item => item.data)
-      .filter(item => item.length).length;
-
     return (
       <div className="Sidebar">
         <section>
           <header>{charts.label}</header>
           <article>
-            {hasItems && charts.items.length ? (
+            {charts.items.length ? (
               charts.items.map(item => (
                 <div
                   className={`Sidebar__chart ${

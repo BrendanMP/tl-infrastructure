@@ -12,32 +12,32 @@ import MultiSelect from "./components/MultSelect/MultiSelect";
 
 import "./scss/main.scss";
 
-function trimHex(hex) {
+function hexToArr(hex) {
   const arr = hexRgb(hex, { format: "array" });
   arr.pop();
   return arr;
 }
 
 const COLORS = [
-  trimHex("#d3ecf0"),
-  trimHex("#42d4e6"),
-  trimHex("#49bf9f"),
-  trimHex("#fffaac"),
-  trimHex("#ff9992"),
-  trimHex("#ff5e52"),
-  trimHex("#836bff"),
-  trimHex("#c040d7"),
-  trimHex("#d3ecf0"),
-  trimHex("#d3ecf0"),
-  trimHex("#d3ecf0")
+  hexToArr("#d3ecf0"),
+  hexToArr("#42d4e6"),
+  hexToArr("#49bf9f"),
+  hexToArr("#fffaac"),
+  hexToArr("#ff9992"),
+  hexToArr("#ff5e52"),
+  hexToArr("#836bff"),
+  hexToArr("#c040d7"),
+  hexToArr("#d3ecf0"),
+  hexToArr("#d3ecf0"),
+  hexToArr("#d3ecf0")
 ];
 
 const CHART_COLORS = [
-  trimHex("#49bf9f"),
-  trimHex("#fffaac"),
-  trimHex("#ff5e52"),
-  trimHex("#836bff"),
-  trimHex("#c040d7")
+  hexToArr("#49bf9f"),
+  hexToArr("#fffaac"),
+  hexToArr("#ff5e52"),
+  hexToArr("#836bff"),
+  hexToArr("#c040d7")
 ];
 
 const CONVERT_OPERATOR = {
@@ -108,7 +108,7 @@ class App extends Component {
               active && active.length ? active.map(item => item.id) : null;
 
             if (activeZones) {
-              return activeZones.includes(item[id]);
+              return activeZones.includes(item[id.toString()]);
             }
 
             return true;

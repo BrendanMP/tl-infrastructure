@@ -11,7 +11,7 @@ class StackChart extends Component {
     const { min, max, values, unit } = chart.data;
     return (
       <div className="StackChart">
-        <header className={"mb-1"}>{chart.label}</header>
+        <header className={"mb-2 text-white"}>{chart.label}</header>
         <article>
           {values.map((item, i) => (
             <div key={`${item.id}-${i}`}>
