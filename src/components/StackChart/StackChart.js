@@ -15,7 +15,11 @@ class StackChart extends Component {
         <article>
           {values.map((item, i) => (
             <div key={`${item.id}-${i}`}>
-              <div className="StackChart__bar-text">{item.label}</div>
+              <div className="StackChart__bar-text">
+                {item.label}
+                {item.population ? `: ${item.population}` : null}
+              </div>
+
               <div className="StackChart__bar" key={`${item}_${i}`}>
                 <div
                   className="StackChart__bar-inner text-white"
@@ -24,15 +28,15 @@ class StackChart extends Component {
                     width: this.getWidth(min, max, item.value)
                   }}
                 >
-                  &nbsp;
+                  &nbsp; {item.value}
                 </div>
               </div>
             </div>
           ))}
         </article>
         <footer className="d-flex justify-content-between">
-          <span>{min + unit} (Min)</span>
-          <span>{max + unit} (Max)</span>
+          <span>{min + unit}</span>
+          <span>{max + unit}</span>
         </footer>
       </div>
     );

@@ -168,7 +168,8 @@ class App extends Component {
                   unit: chart.unit,
                   values: items.map((item, i) => {
                     return {
-                      value: item[chart.id],
+                      value: item[chart.id + ".value"],
+                      population: item[chart.id + ".population"],
                       color: CHART_COLORS[i],
                       label: item.label
                     };
