@@ -1,19 +1,25 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import hexRgb from "hex-rgb";
-import axios from "axios";
-import { groupBy } from "lodash";
+import {groupBy} from "lodash";
+
+import ZONES_JSON from './data/zones.json'
+import CHARTS_JSON from './data/charts.json'
+import POI_JSON from './data/poi_v4.json'
+import POI_TYPES_JSON from './data/poi_types.json'
+import REGIONS_JSON from './data/regions.json'
+import COMMUNES_JSON from './data/communes.json'
+import SUB_COMMUNES_JSON from './data/sub_communes.json'
 
 import Map from "./components/Map/Map";
 import Nav from "./components/Nav/Nav";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Legend from "./components/Legend/Legend";
 
 import MultiSelect from "./components/MultSelect/MultiSelect";
 
 import "./scss/main.scss";
 
 function hexToArr(hex) {
-  const arr = hexRgb(hex, { format: "array" });
+  const arr = hexRgb(hex, {format: "array"});
   arr.pop();
   return arr;
 }
@@ -41,7 +47,7 @@ const CHART_COLORS = [
 ];
 
 const CONVERT_OPERATOR = {
-  divide: function(x, y) {
+  divide: function (x, y) {
     return x / y;
   }
 };
@@ -55,21 +61,7 @@ class App extends Component {
         items: []
       },
       layer: {},
-      legend: {
-        label: "Legend Label",
-        items: [
-          {
-            id: "1",
-            label: "Demo Label 1",
-            color: "tomato"
-          },
-          {
-            id: "2",
-            label: "Demo Label 2",
-            color: "deepskyblue"
-          }
-        ]
-      }
+      legend: {}
     };
 
     this._selectZone = this._selectZone.bind(this);
@@ -81,45 +73,46 @@ class App extends Component {
   _selectZone(zone) {
     const zones = this.state.zones;
     zones.active = zone;
-    this.setState({ zones });
+    this.setState({zones});
   }
 
   _clickedNav(layer) {
-    this.setState({ layer });
+    console.log(layer)
+    this.setState({layer});
   }
 
   _filterPoints(points) {
-    const { layer, zones } = this.state;
+    const {layer, zones} = this.state;
 
     const filtered = points
       ? points
-          .filter(item => {
-            if (layer.id && layer.id === item.groupid) {
-              return true;
-            }
-            if (!layer.id) {
-              return true;
-            }
-          })
-          .filter(item => {
-            const { active, id } = zones.active;
-
-            const activeZones =
-              active && active.length ? active.map(item => item.id) : null;
-
-            if (activeZones) {
-              return activeZones.includes(item[id.toString()]);
-            }
-
+        .filter(item => {
+          if (layer.id && layer.id === item.groupid) {
             return true;
-          })
+          }
+          if (!layer.id) {
+            return true;
+          }
+        })
+        .filter(item => {
+          const {active, id} = zones.active;
+
+          const activeZones =
+            active && active.length ? active.map(item => item.id) : null;
+
+          if (activeZones) {
+            return activeZones.includes(item[id.toString()]);
+          }
+
+          return true;
+        })
       : null;
 
     return filtered || [];
   }
 
   _createLegend() {
-    const { layer, types } = this.state;
+    const {layer, types} = this.state;
     if (layer.id && layer.items) {
       return layer.items.map(item => {
         return {
@@ -140,7 +133,7 @@ class App extends Component {
   }
 
   _createCharts() {
-    const { zones, layer, points, charts } = this.state;
+    const {zones, layer, points, charts} = this.state;
 
     let items = [];
 
@@ -156,73 +149,62 @@ class App extends Component {
       label: zones.active.id ? zones.active.label : " ",
       items: charts
         ? charts
-            .filter(chart => chart.groupid === layer.id)
-            .map((chart, i) => {
-              return {
-                id: chart.id,
-                label: chart.label,
-                type: chart.type,
-                data: {
-                  min: Number(chart.min),
-                  max: Number(chart.max),
-                  unit: chart.unit,
-                  values: items.map((item, i) => {
-                    return {
-                      value: item[chart.id + ".value"],
-                      population: item[chart.id + ".population"],
-                      color: CHART_COLORS[i],
-                      label: item.label
-                    };
-                  })
-                }
-              };
-            })
+          .filter(chart => chart.groupid === layer.id)
+          .map((chart, i) => {
+            return {
+              id: chart.id,
+              label: chart.label,
+              type: chart.type,
+              data: {
+                min: Number(chart.min),
+                max: Number(chart.max),
+                unit: chart.unit,
+                values: items.map((item, i) => {
+                  return {
+                    value: item[chart.id + ".value"],
+                    population: item[chart.id + ".population"],
+                    color: CHART_COLORS[i],
+                    label: item.label
+                  };
+                })
+              }
+            };
+          })
         : []
     };
   }
 
   _storeData(zones, points, types, charts) {
-    this.setState({ zones, points, types, charts });
+    this.setState({zones, points, types, charts});
   }
 
   async componentDidMount() {
     try {
-      const zones = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/zones`
-      );
+      const zones = ZONES_JSON
 
-      const poi = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/poi_v4`
-      );
+      const poi = POI_JSON
 
-      const types = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/poi_types`
-      );
+      const types = POI_TYPES_JSON
 
-      const charts = await axios.get(
-        `https://tl-socket-server.herokuapp.com/api/charts`
-      );
+      const charts = CHARTS_JSON
 
-      await Promise.all(
-        zones.data.map(async item => {
-          const items = await axios.get(
-            `https://tl-socket-server.herokuapp.com/api/${item.id}`
-          );
+      zones[0].items = REGIONS_JSON.map(item => {
+        item.value = item.id;
+        return item
+      })
 
-          items.data.map(item => {
-            item.value = item.id;
-            item.value = item.id;
-            return item;
-          });
+      zones[1].items = COMMUNES_JSON.map(item => {
+        item.value = item.id;
+        return item
+      })
 
-          item.items = items.data;
+      zones[2].items = SUB_COMMUNES_JSON.map(item => {
+        item.value = item.id;
+        return item
+      })
 
-          return item;
-        })
-      );
-
-      const points = poi.data.map(item => {
-        const match = types.data.find(type => {
+      const points = poi.map(item => {
+        const match = types.find(type => {
           return type.id === item.typeid;
         });
 
@@ -231,7 +213,7 @@ class App extends Component {
         return item;
       });
 
-      const groups = groupBy(types.data, "groupid");
+      const groups = groupBy(types, "groupid");
 
       const nav = Object.keys(groups).map((key, i) => {
         return {
@@ -247,11 +229,11 @@ class App extends Component {
       this._storeData(
         {
           active: {},
-          items: zones.data
+          items: zones
         },
         points,
         nav,
-        charts.data
+        charts
       );
     } catch (e) {
       console.log(e);
@@ -259,7 +241,7 @@ class App extends Component {
   }
 
   render() {
-    const { layer, zones, points, types } = this.state;
+    const {layer, zones, points, types} = this.state;
 
     const demographics = zones.active.items || [];
 
@@ -273,14 +255,14 @@ class App extends Component {
           />
         </header>
         <main>
-          <Nav types={types} active={layer} clicked={this._clickedNav} />
+          <Nav types={types} active={layer} clicked={this._clickedNav}/>
           <Map
             data={zones.active}
             layer={layer}
             points={this._filterPoints(points)}
             legend={this._createLegend()}
           ></Map>
-          <Sidebar charts={this._createCharts()} demographics={demographics} />
+          <Sidebar charts={this._createCharts()} demographics={demographics}/>
         </main>
       </div>
     );

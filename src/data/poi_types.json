@@ -1,0 +1,281 @@
+[
+ {
+   "id": "healthcare_clinics",
+   "label": "Clinic",
+   "groupid": "healthcare",
+   "grouplabel": "Healthcare",
+   "groupcolor": 1,
+   "typecolor": 1,
+   "hidden": false
+ },
+ {
+   "id": "healthcare_pharmacy",
+   "label": "Pharmacy",
+   "groupid": "healthcare",
+   "grouplabel": "Healthcare",
+   "groupcolor": 1,
+   "typecolor": 2,
+   "hidden": false
+ },
+ {
+   "id": "healthcare_hospital",
+   "label": "Hospital",
+   "groupid": "healthcare",
+   "grouplabel": "Healthcare",
+   "groupcolor": 1,
+   "typecolor": 3,
+   "hidden": false
+ },
+ {
+   "id": "healthcare_doctors",
+   "label": "Doctor",
+   "groupid": "healthcare",
+   "grouplabel": "Healthcare",
+   "groupcolor": 1,
+   "typecolor": 4,
+   "hidden": false
+ },
+ {
+   "id": "healthcare_other",
+   "label": "Other",
+   "groupid": "healthcare",
+   "grouplabel": "Healthcare",
+   "groupcolor": 1,
+   "typecolor": 0,
+   "hidden": false
+ },
+ {
+   "id": "education_school",
+   "label": "School",
+   "groupid": "education",
+   "grouplabel": "Education",
+   "groupcolor": 2,
+   "typecolor": 1,
+   "hidden": false
+ },
+ {
+   "id": "education_college",
+   "label": "College",
+   "groupid": "education",
+   "grouplabel": "Education",
+   "groupcolor": 2,
+   "typecolor": 2,
+   "hidden": false
+ },
+ {
+   "id": "education_univeristy",
+   "label": "University",
+   "groupid": "education",
+   "grouplabel": "Education",
+   "groupcolor": 2,
+   "typecolor": 3,
+   "hidden": false
+ },
+ {
+   "id": "education_library",
+   "label": "Library",
+   "groupid": "education",
+   "grouplabel": "Education",
+   "groupcolor": 2,
+   "typecolor": 4,
+   "hidden": false
+ },
+ {
+   "id": "education_other",
+   "label": "Other",
+   "groupid": "education",
+   "grouplabel": "Education",
+   "groupcolor": 2,
+   "typecolor": 0,
+   "hidden": false
+ },
+ {
+   "id": "religion_mosquee",
+   "label": "Mosquée",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 1,
+   "hidden": false
+ },
+ {
+   "id": "religion_harris",
+   "label": "Harris",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 2,
+   "hidden": false
+ },
+ {
+   "id": "religion_catholique",
+   "label": "Catholique",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 3,
+   "hidden": false
+ },
+ {
+   "id": "religion_evangelique",
+   "label": "Evangélique",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 4,
+   "hidden": false
+ },
+ {
+   "id": "religion_bapiste",
+   "label": "Baptiste ",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 5,
+   "hidden": false
+ },
+ {
+   "id": "religion_pentecote",
+   "label": "Pentecôte",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 6,
+   "hidden": false
+ },
+ {
+   "id": "religion_methodist",
+   "label": "Méthodiste",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 7,
+   "hidden": false
+ },
+ {
+   "id": "religion_protestante",
+   "label": "Église Protestante",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 3,
+   "typecolor": 8,
+   "hidden": false
+ },
+ {
+   "id": "religion_other",
+   "label": "Other",
+   "groupid": "religion",
+   "grouplabel": "Religion",
+   "groupcolor": 0,
+   "typecolor": 0,
+   "hidden": false
+ },
+ {
+   "id": "finance_bicici",
+   "label": "BICICI",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 1,
+   "hidden": false
+ },
+ {
+   "id": "finance_ecobank",
+   "label": "Ecobank",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 2,
+   "hidden": false
+ },
+ {
+   "id": "finance_sgbci",
+   "label": "SGBCI",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 3,
+   "hidden": false
+ },
+ {
+   "id": "finance_sid",
+   "label": "SIB",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 4,
+   "hidden": false
+ },
+ {
+   "id": "finance_atlantique",
+   "label": "Atlantique",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 5,
+   "hidden": false
+ },
+ {
+   "id": "finance_bank-bfa",
+   "label": "Bank of Africa",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 6,
+   "hidden": false
+ },
+ {
+   "id": "finance_nsia",
+   "label": "NSIA",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 7,
+   "hidden": false
+ },
+ {
+   "id": "finance_other",
+   "label": "Other",
+   "groupid": "finance",
+   "grouplabel": "Finance",
+   "groupcolor": 4,
+   "typecolor": 0,
+   "hidden": false
+ },
+ {
+   "id": "energy_other",
+   "label": "Other",
+   "groupid": "energy",
+   "grouplabel": "Energy",
+   "groupcolor": 0,
+   "typecolor": 0,
+   "hidden": true
+ },
+ {
+   "id": "demographics_other",
+   "label": "Other",
+   "groupid": "demographics",
+   "grouplabel": "Demographics",
+   "groupcolor": 0,
+   "typecolor": 0,
+   "hidden": true
+ },
+ {
+   "id": "administration_embassy",
+   "label": "Embassy",
+   "groupid": "administration",
+   "grouplabel": "Administration",
+   "groupcolor": 0,
+   "typecolor": 1,
+   "hidden": true
+ },
+ {
+   "id": "administration_other",
+   "label": "Other",
+   "groupid": "administration",
+   "grouplabel": "Administration",
+   "groupcolor": 0,
+   "typecolor": 0,
+   "hidden": true
+ }
+]

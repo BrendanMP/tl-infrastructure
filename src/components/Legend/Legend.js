@@ -9,8 +9,9 @@ class Legend extends Component {
     return legend.length ? (
       <div className="Legend">
         <ul className="list-unstyled">
-          {legend.map(item => (
-            <li className="Legend__item" key={item.id}>
+          {legend.map(item => {
+            console.log(item)
+            return <li className="Legend__item" key={item.id}>
               <span
                 className="Legend__item-color"
                 style={{
@@ -19,7 +20,7 @@ class Legend extends Component {
               ></span>
               <span className="Legend__item-label">{item.label}</span>
             </li>
-          ))}
+          })}
         </ul>
       </div>
     ) : null;

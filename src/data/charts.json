@@ -1,0 +1,65 @@
+[
+ {
+   "id": "healthcare-chart-1",
+   "groupid": "healthcare",
+   "label": "Number of Ivorians Per Hospital",
+   "unit": " People",
+   "type": "StackChart",
+   "max": 300000,
+   "min": 0
+ },
+ {
+   "id": "healthcare-chart-2",
+   "groupid": "healthcare",
+   "label": "Number of Ivorians Per Pharmacy",
+   "unit": " People",
+   "type": "StackChart",
+   "max": 75000,
+   "min": 0
+ },
+ {
+   "id": "healthcare-chart-3",
+   "groupid": "healthcare",
+   "label": "Number of Ivorians Per Doctor's Office",
+   "unit": "",
+   "type": "StackChart",
+   "max": 100,
+   "min": 0
+ },
+ {
+   "id": "education-chart-1",
+   "groupid": "education",
+   "label": "Schools per 1000 people",
+   "unit": "",
+   "type": "StackChart",
+   "max": 100,
+   "min": 0
+ },
+ {
+   "id": "education-chart-2",
+   "groupid": "education",
+   "label": "Colleges per 1000 people",
+   "unit": "",
+   "type": "StackChart",
+   "max": 100,
+   "min": 0
+ },
+ {
+   "id": "education-chart-3",
+   "groupid": "education",
+   "label": "Universities per 1000 people",
+   "unit": "",
+   "type": "StackChart",
+   "max": 100,
+   "min": 0
+ },
+ {
+   "id": "religion-chart-1",
+   "groupid": "religion",
+   "label": "Religion",
+   "unit": "",
+   "type": "StackChart",
+   "max": 100,
+   "min": 0
+ }
+]

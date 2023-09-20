@@ -1,0 +1,14 @@
+[
+ {
+   "id": "regions",
+   "label": "Côte d’Ivoire Regions"
+ },
+ {
+   "id": "communes",
+   "label": "Abidjan Communes"
+ },
+ {
+   "id": "sub_communes",
+   "label": "Abidjan Sub-Communes"
+ }
+]
